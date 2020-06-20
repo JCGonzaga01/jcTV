@@ -1,0 +1,45 @@
+.wrapper {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+
+    .menu {
+      display: flex;
+
+      & > div {
+        margin-right: 10px;
+        padding-top: 20px;
+        cursor: pointer;
+        border-top: 3px solid rgba(0, 0, 0, 0);
+        font-weight: 700;
+
+        &:not(:first-child):hover {
+          border-top: 3px solid red;
+        }
+      }
+
+      .search {
+        height: 20px;
+        width: 20px;
+        stroke: #969696;
+      }
+    }
+
+    .logoContainer {
+      padding-top: 10px;
+      height: 60px;
+
+      .logo {
+        max-width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
