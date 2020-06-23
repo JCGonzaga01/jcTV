@@ -1,22 +1,30 @@
-import React from "react";
-import PageBanner from "components/PageBanner";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { ItemSlides, PageBanner } from "components";
+import { fetchHomeTypeAsync } from "store/actions/home";
+import { home } from "store/selectors/home";
+import styles from "./Home.scss";
 
 const Home: React.FC = () => {
+  const dispatch = useDispatch();
+  const { payload } = useSelector(home);
+
+  useEffect(() => {
+    dispatch(fetchHomeTypeAsync.request(undefined, undefined));
+  }, [dispatch]);
+
   return (
-    <div>
+    <>
       <PageBanner />
-      {/* <hr />
-      <h3>Environmental variables:</h3>
-      <p>
-        process.env.PRODUCTION: <b>{process.env.PRODUCTION.toString()}</b>
-      </p>
-      <p>
-        process.env.NAME: <b>{process.env.NAME}</b>
-      </p>
-      <p>
-        process.env.VERSION: <b>{process.env.VERSION}</b>
-      </p> */}
-    </div>
+      {payload?.categoryList?.map((category) => {
+        return (
+          <>
+            <div className={styles.categoryTitle}>{category.title}</div>
+            <ItemSlides key={category.id} items={category.list} />
+          </>
+        );
+      })}
+    </>
   );
 };
 

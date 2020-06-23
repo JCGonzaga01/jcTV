@@ -1,5 +1,5 @@
 import { combineEpics } from "redux-observable";
 
-import * as eventListEpic from "./epics/eventList";
+import * as homeEpic from "./epics/home";
 
-export default combineEpics(...Object.values(eventListEpic));
+export default combineEpics(...Object.values(homeEpic));

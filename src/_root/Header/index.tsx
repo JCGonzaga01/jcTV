@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./Header.scss";
 
 const Header: React.FC = () => {
-  console.log(process);
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>

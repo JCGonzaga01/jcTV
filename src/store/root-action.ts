@@ -1,5 +1,5 @@
-import * as eventListActions from './actions/eventList';
+import * as homeActions from './actions/home';
 
 export default {
-  eventList: eventListActions,
+  home: homeActions,
 };

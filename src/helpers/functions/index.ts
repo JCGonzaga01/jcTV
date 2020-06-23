@@ -1,1 +1,1 @@
-export { default as firestoreParser } from "./firestoreParser";
+export { default as classNames } from "./classNames";

@@ -1,0 +1,197 @@
+.wrapper {
+  display: flex;
+  padding-left: 5%;
+  position: relative;
+  min-height: 400px;
+  height: 400px;
+  animation: itemShowing 1s ease-in forwards;
+
+  .itemDescription {
+    width: 40%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 20px;
+    background: linear-gradient(
+      to right,
+      black,
+      black,
+      black,
+      rgba(0, 0, 0, 0.97),
+      rgb(0, 0, 0),
+      rgba(0, 0, 0, 0.74),
+      rgba(0, 0, 0, 0.62),
+      rgba(0, 0, 0, 0.01)
+    );
+
+    .title {
+      width: 100%;
+      max-height: 100px;
+      margin-bottom: 15px;
+    }
+
+    .itemHeader {
+      margin-bottom: 10px;
+
+      .match {
+        font-weight: bold;
+        color: rgb(9, 154, 28);
+      }
+
+      .yearDuration {
+        font-weight: bold;
+      }
+
+      .grade {
+        border: 1px solid;
+        padding: 0 3px;
+        font-weight: bold;
+      }
+
+      & > span {
+        margin-right: 10px;
+      }
+    }
+
+    .summary {
+      color: rgba(204, 204, 204, 0.95);
+      margin-bottom: 10px;
+    }
+
+    .playBtn {
+      width: 70px;
+      border-radius: 10px;
+      border: 1px solid white;
+      background: black;
+      color: white;
+      cursor: pointer;
+      margin-bottom: 15px;
+
+      &:hover {
+        color: black;
+        background: white;
+        border: 1px solid black;
+      }
+    }
+
+    .starring {
+      margin-bottom: 10px;
+      & > span {
+        font-weight: bold;
+      }
+    }
+
+    .availableTo {
+      margin-bottom: 10px;
+
+      & > div {
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .itemTrailer {
+    width: 70%;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .playBtn {
+      width: 50px;
+      height: 50px;
+      transition: 0.5s;
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      .polygon {
+        transition: 0.5s;
+        fill: rgba(0, 0, 0, 0.7);
+      }
+
+      .pathSvg {
+        transition: 0.5s;
+        fill: white;
+      }
+
+      &:hover .polygon {
+        transition: 0.5s;
+        fill: white;
+      }
+
+      &:hover .pathSvg {
+        transition: 0.5s;
+        fill: rgba(0, 0, 0, 0.7);
+      }
+    }
+
+    .trailerPoster {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .closeDetails {
+    position: absolute;
+    z-index: 1;
+    right: 50px;
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 25px;
+    display: flex;
+    background: rgba(255, 255, 255, 0.69);
+    cursor: pointer;
+
+    & > svg {
+      width: 100%;
+      height: 100%;
+      & > path {
+        stroke: black;
+        fill: transparent;
+        stroke-linecap: round;
+        stroke-width: 5;
+      }
+    }
+
+    &:hover {
+      background: black;
+      color: white;
+      border: 1px solid black;
+
+      & > svg > path {
+        stroke: white;
+        fill: transparent;
+        stroke-linecap: round;
+        stroke-width: 5;
+      }
+    }
+  }
+}
+
+.closing {
+  animation: itemClosing 0.5s ease-in forwards;
+}
+
+@keyframes itemShowing {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes itemClosing {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,44 @@
+.wrapper {
+  margin-bottom: 20px;
+
+  .itemCarouselContainer {
+    display: flex;
+    height: 250px;
+
+    .noArrow {
+      width: 5vw;
+    }
+
+    .btnContainer {
+      z-index: 2;
+      width: 5vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.7);
+      cursor: pointer;
+
+      &:hover .pathBtn {
+        transition: 0.5s;
+        fill: red;
+        stroke: red;
+      }
+
+      .arrowBtn {
+        width: 25px;
+        height: 37px;
+      }
+
+      .pathBtn {
+        fill: white;
+        stroke: white;
+      }
+    }
+
+    .itemsContainer {
+      display: flex;
+      width: 90vw;
+      overflow: hidden;
+    }
+  }
+}

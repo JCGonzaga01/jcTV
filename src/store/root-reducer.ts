@@ -1,9 +1,8 @@
 import { combineReducers } from "redux";
-import eventListReducer from "./reducers/eventList";
+import homeReducer from "./reducers/home";
 
 const rootReducer = combineReducers({
-  // router: routerReducer,
-  eventList: eventListReducer,
+  home: homeReducer,
 });
 
 export default rootReducer;

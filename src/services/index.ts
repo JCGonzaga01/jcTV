@@ -1,7 +1,7 @@
-import * as eventList from "./apiClients/eventList";
+import * as home from "./apiClients/home";
 
 export default {
   api: {
-    eventList,
+    home,
   },
 };
