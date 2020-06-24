@@ -1,4 +1,4 @@
-## This is a simple VOD (Video-On-Demand) app design and functionalities.
+## This is a simple VOD (Video-On-Demand) app with functionalities.
 
 The project is build using **ReactJS** and maximizing the capabilities of **ReactHooks** and **TypeScripts**. Also components are implemented purely using **VanillaJS**.
 ##
