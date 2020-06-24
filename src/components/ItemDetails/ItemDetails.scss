@@ -1,18 +1,18 @@
+@import "helpers/stylings/_index.scss";
+
 .wrapper {
+  animation: itemShowing 1s ease-in forwards;
   display: flex;
+  height: 400px;
+  min-height: 400px;
   padding-left: 5%;
   position: relative;
-  min-height: 400px;
-  height: 400px;
-  animation: itemShowing 1s ease-in forwards;
 
   .itemDescription {
-    width: 40%;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-right: 20px;
+    @include media-query(sp) {
+      justify-content: flex-start;
+    }
+
     background: linear-gradient(
       to right,
       black,
@@ -24,19 +24,33 @@
       rgba(0, 0, 0, 0.62),
       rgba(0, 0, 0, 0.01)
     );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 20px;
+    width: 40%;
+    z-index: 1;
 
     .title {
-      width: 100%;
-      max-height: 100px;
       margin-bottom: 15px;
+      max-height: 100px;
+      width: 100%;
     }
 
     .itemHeader {
+      @include media-query(sp) {
+        display: block;
+        & > div {
+          margin-bottom: 10px;
+        }
+      }
+
+      display: flex;
       margin-bottom: 10px;
 
       .match {
-        font-weight: bold;
         color: rgb(9, 154, 28);
+        font-weight: bold;
       }
 
       .yearDuration {
@@ -45,11 +59,11 @@
 
       .grade {
         border: 1px solid;
-        padding: 0 3px;
         font-weight: bold;
+        padding: 0 3px;
       }
 
-      & > span {
+      & > div > span {
         margin-right: 10px;
       }
     }
@@ -60,18 +74,19 @@
     }
 
     .playBtn {
-      width: 70px;
-      border-radius: 10px;
-      border: 1px solid white;
       background: black;
+      border: 1px solid white;
+      border-radius: 10px;
       color: white;
       cursor: pointer;
       margin-bottom: 15px;
+      min-height: fit-content;
+      width: 70px;
 
       &:hover {
-        color: black;
         background: white;
         border: 1px solid black;
+        color: black;
       }
     }
 
@@ -85,6 +100,10 @@
     .availableTo {
       margin-bottom: 10px;
 
+      .tags {
+        display: flex;
+      }
+
       & > div {
         margin-top: 5px;
       }
@@ -92,68 +111,69 @@
   }
 
   .itemTrailer {
-    width: 70%;
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
     position: absolute;
     right: 0;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 70%;
 
     .playBtn {
-      width: 50px;
-      height: 50px;
-      transition: 0.5s;
       cursor: pointer;
+      height: 50px;
+      left: 50%;
       position: absolute;
       top: 50%;
-      left: 50%;
+      transition: 0.5s;
+      width: 50px;
 
       .polygon {
-        transition: 0.5s;
         fill: rgba(0, 0, 0, 0.7);
+        transition: 0.5s;
       }
 
       .pathSvg {
-        transition: 0.5s;
         fill: white;
+        transition: 0.5s;
       }
 
       &:hover .polygon {
-        transition: 0.5s;
         fill: white;
+        transition: 0.5s;
       }
 
       &:hover .pathSvg {
-        transition: 0.5s;
         fill: rgba(0, 0, 0, 0.7);
+        transition: 0.5s;
       }
     }
 
     .trailerPoster {
-      position: absolute;
       height: 100%;
+      position: absolute;
       width: 100%;
     }
   }
 
   .closeDetails {
-    position: absolute;
-    z-index: 1;
-    right: 50px;
+    background: rgba(255, 255, 255, 0.69);
     border: 1px solid black;
     border-radius: 50%;
-    width: 25px;
-    display: flex;
-    background: rgba(255, 255, 255, 0.69);
     cursor: pointer;
+    display: flex;
+    position: absolute;
+    right: 50px;
+    width: 25px;
+    z-index: 1;
 
     & > svg {
       width: 100%;
       height: 100%;
+
       & > path {
-        stroke: black;
         fill: transparent;
+        stroke: black;
         stroke-linecap: round;
         stroke-width: 5;
       }
@@ -161,12 +181,12 @@
 
     &:hover {
       background: black;
-      color: white;
       border: 1px solid black;
+      color: white;
 
       & > svg > path {
-        stroke: white;
         fill: transparent;
+        stroke: white;
         stroke-linecap: round;
         stroke-width: 5;
       }
@@ -176,22 +196,4 @@
 
 .closing {
   animation: itemClosing 0.5s ease-in forwards;
-}
-
-@keyframes itemShowing {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes itemClosing {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
 }

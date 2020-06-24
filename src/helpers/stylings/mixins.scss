@@ -1,0 +1,15 @@
+@mixin media-query($mqType) {
+  @if $mqType == "sp" {
+    @media (max-width: 729px) {
+      @content;
+    }
+  } @else if $mqType == "tl" {
+    @media (min-width: 730px) and (max-width: 1140px) {
+      @content;
+    }
+  } @else if $mqType == "pc" {
+    @media (min-width: 1140px) {
+      @content;
+    }
+  }
+}

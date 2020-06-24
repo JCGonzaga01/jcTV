@@ -6,11 +6,19 @@ import styles from "./ItemCard.scss";
 
 type Props = {
   payload: CategoryType;
+  isCardOnly?: boolean;
   isSelected?: boolean;
   onViewDetails?: (id: string) => void;
+  onClickPlayBtn: () => void;
 };
 
-const ItemCard: React.FC<Props> = ({ payload, isSelected = false, onViewDetails = () => {} }) => {
+const ItemCard: React.FC<Props> = ({
+  payload,
+  isCardOnly = false,
+  isSelected = false,
+  onViewDetails = () => {},
+  onClickPlayBtn,
+}) => {
   const [isOut, setIsOut] = useState(true);
   const [isRendered, setIsRendered] = useState(false);
 
@@ -33,20 +41,21 @@ const ItemCard: React.FC<Props> = ({ payload, isSelected = false, onViewDetails 
   return (
     <div
       style={inlineStyles}
-      className={styles.wrapper}
+      className={classNames(styles.wrapper, isCardOnly && styles.cursorPointer)}
       onMouseEnter={hanldeOnMouseEnter}
       onMouseLeave={handleOnMouseLeave}
+      onClick={() => isCardOnly && onViewDetails(payload?.id)}
     >
-      {isRendered && (
+      {isRendered && !isCardOnly && (
         <div className={classNames(styles.container, (!isOut || isSelected) && styles.containerBG)}>
           <div
             className={classNames(
               styles.cardDetails,
-              isOut && !isSelected ? styles.detailsNotShow : styles.detailsShow
+              isOut && !isSelected ? styles.detailsNotShow : styles.itemShowing
             )}
           >
             <div className={classNames(styles.playBtnContainer, isSelected && styles.playBtnShow)}>
-              <div className={styles.playBtn}>
+              <div className={styles.playBtn} onClick={onClickPlayBtn}>
                 <svg viewBox={"0 0 27 27"}>
                   <polygon
                     className={styles.polygon}
@@ -76,7 +85,7 @@ const ItemCard: React.FC<Props> = ({ payload, isSelected = false, onViewDetails 
           <div
             className={classNames(
               styles.viewDetailsContainer,
-              isOut && !isSelected ? styles.detailsNotShow : styles.detailsShow,
+              isOut && !isSelected ? styles.detailsNotShow : styles.itemShowing,
               isSelected && styles.showDetails,
               !isSelected && styles.cursorPointer
             )}

@@ -1,20 +1,30 @@
 import React, { useRef, useEffect, useState } from "react";
 import { ItemCard, ItemDetails } from "components";
 import { CategoryType } from "HomeType";
+import { itemPerView } from "helpers/functions";
 import styles from "./ItemSlides.scss";
 
 type Props = {
   items: Array<CategoryType>;
+  isCardOnly?: boolean;
+  preSelectedId?: string;
+  onViewDetailBanner?: (id: string) => void;
 };
 
-const ItemSlides: React.FC<Props> = ({ items }) => {
+const ItemSlides: React.FC<Props> = ({
+  items,
+  isCardOnly = false,
+  preSelectedId = "",
+  onViewDetailBanner = () => {},
+}) => {
   const isClient = typeof window === "object";
   const itemRef = useRef();
   const [itemWidth, setItemWidth] = useState(0);
-  const [selectedItemId, setSelectedItemId] = useState("");
+  const [selectedItemId, setSelectedItemId] = useState(preSelectedId);
   const [itemDetails, setItemDetails] = useState<CategoryType>({} as CategoryType);
   const [itemsData, setItemsData] = useState<Array<CategoryType>>(items);
-  const [itemPerView, setItemPerView] = useState(3);
+  const [itemPerViewWidth, setItemPerViewWidth] = useState(3);
+  const [newDetails, setNewDetails] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -23,9 +33,9 @@ const ItemSlides: React.FC<Props> = ({ items }) => {
       }
       const screenWidth = isClient ? window.innerWidth : 0;
       const itemRefDetails = itemRef.current || { clientWidth: screenWidth };
-      const itemPerView = screenWidth < 730 ? 3 : screenWidth < 1140 && screenWidth >= 730 ? 4 : 5;
-      const newItemWidth = itemRefDetails.clientWidth / itemPerView;
-      setItemPerView(itemPerView);
+      const newItemPerViewWidth = itemPerView(screenWidth);
+      const newItemWidth = itemRefDetails.clientWidth / newItemPerViewWidth;
+      setItemPerViewWidth(newItemPerViewWidth);
       setItemWidth(newItemWidth);
     };
 
@@ -37,8 +47,16 @@ const ItemSlides: React.FC<Props> = ({ items }) => {
 
   const onViewDetails = (id: string) => {
     setSelectedItemId(id);
-    const selectedItem = itemsData.filter((item) => item.id === id)[0];
-    setItemDetails(selectedItem);
+    if (isCardOnly) {
+      onViewDetailBanner(id);
+    } else {
+      const selectedItem = itemsData.filter((item) => item.id === id)[0];
+      setItemDetails(selectedItem);
+    }
+    setNewDetails(true);
+    setTimeout(() => {
+      setNewDetails(false);
+    }, 500);
   };
 
   const onCloseDetails = () => {
@@ -60,10 +78,12 @@ const ItemSlides: React.FC<Props> = ({ items }) => {
     setItemsData(tmpItems);
   };
 
+  const handleOnClickPlayBtn = () => window.open("https://waitforit.rakuten.tv/", "_blank");
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.itemCarouselContainer}>
-        {itemsData.length > itemPerView ? (
+        {itemsData.length > itemPerViewWidth ? (
           <div className={styles.btnContainer} onClick={onHandleLeftArrow}>
             <div className={styles.arrowBtn}>
               <svg viewBox={"0 0 15 23"}>
@@ -86,12 +106,14 @@ const ItemSlides: React.FC<Props> = ({ items }) => {
                     payload={item}
                     onViewDetails={onViewDetails}
                     isSelected={selectedItemId === item.id}
+                    isCardOnly={isCardOnly}
+                    onClickPlayBtn={handleOnClickPlayBtn}
                   />
                 </div>
               );
             })}
         </div>
-        {itemsData.length > itemPerView && (
+        {itemsData.length > itemPerViewWidth && (
           <div className={styles.btnContainer} onClick={onHandleRightArrow}>
             <div className={styles.arrowBtn}>
               <svg viewBox={"0 0 15 23"}>
@@ -104,8 +126,14 @@ const ItemSlides: React.FC<Props> = ({ items }) => {
           </div>
         )}
       </div>
-      {Object.keys(itemDetails).length !== 0 && (
-        <ItemDetails payload={itemDetails} onClose={onCloseDetails} />
+      {Object.keys(itemDetails).length !== 0 && !isCardOnly && (
+        <div className={newDetails ? styles.itemShowing : ""}>
+          <ItemDetails
+            payload={itemDetails}
+            onClose={onCloseDetails}
+            onClickPlayBtn={handleOnClickPlayBtn}
+          />
+        </div>
       )}
     </div>
   );

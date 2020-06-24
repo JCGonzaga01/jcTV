@@ -14,6 +14,7 @@ module.exports = (env): typeof webpack.Configuration => ({
     alias: {
       _root: path.resolve(__dirname, "./src/_root/"),
       components: path.resolve(__dirname, "./src/components/"),
+      constants: path.resolve(__dirname, "./src/constants/"),
       helpers: path.resolve(__dirname, "./src/helpers/"),
       pages: path.resolve(__dirname, "./src/pages/"),
       services: path.resolve(__dirname, "./src/services/"),

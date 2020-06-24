@@ -1,16 +1,13 @@
+@import "helpers/stylings/animation.scss";
+
 .wrapper {
-  min-width: 160px;
-  // min-height: 200px;
-  height: 90%;
   border-radius: 5px;
+  height: 90%;
+  min-width: 160px;
   z-index: 1;
 
-  .detailsShow {
-    animation: itemShowing 0.5s ease-in forwards;
-  }
-
   .detailsNotShow {
-    animation: itemNotShowing 0.3s ease-in forwards;
+    animation: itemClosing 0.3s ease-in forwards;
   }
 
   .containerBG {
@@ -22,45 +19,45 @@
     width: 100%;
 
     .cardDetails {
-      width: 100%;
       height: 85%;
+      width: 100%;
 
       .playBtnShow {
         animation: showDetails 0.5s ease-in forwards;
       }
 
       .playBtnContainer {
-        width: 100%;
-        height: 50%;
-        display: flex;
         align-items: flex-end;
+        display: flex;
+        height: 50%;
         justify-content: center;
         margin-bottom: 20px;
+        width: 100%;
 
         .playBtn {
-          width: 50px;
+          cursor: pointer;
           height: 50px;
           transition: 0.5s;
-          cursor: pointer;
+          width: 50px;
 
           .polygon {
-            transition: 0.5s;
             fill: rgba(0, 0, 0, 0.7);
+            transition: 0.5s;
           }
 
           .pathSvg {
-            transition: 0.5s;
             fill: white;
+            transition: 0.5s;
           }
 
           &:hover .polygon {
-            transition: 0.5s;
             fill: white;
+            transition: 0.5s;
           }
 
           &:hover .pathSvg {
-            transition: 0.5s;
             fill: rgba(0, 0, 0, 0.7);
+            transition: 0.5s;
           }
         }
       }
@@ -73,45 +70,44 @@
         }
 
         .movieTitle {
-          text-overflow: ellipsis;
           overflow: hidden;
+          text-overflow: ellipsis;
           white-space: nowrap;
         }
-  
+
         .tags {
           display: flex;
         }
       }
-
     }
 
     .showDetails {
       animation: showDetails 0.5s ease-in forwards;
 
       & > div > svg > path {
-        stroke: white;
         fill: white;
+        stroke: white;
         stroke-width: 3px;
       }
     }
 
     .viewDetailsContainer {
-      width: 100%;
-      height: 15%;
-      display: flex;
       align-items: center;
+      display: flex;
+      height: 15%;
       justify-content: center;
+      width: 100%;
       z-index: 1;
 
       .viewDetails {
-        width: 35px;
         height: 10px;
+        width: 35px;
 
         .arrowPath {
-          transition: 0.5s;
-          stroke: white;
           fill: white;
+          stroke: white;
           stroke-width: 2px;
+          transition: 0.5s;
         }
       }
 
@@ -122,28 +118,10 @@
       }
     }
   }
-
-  .cursorPointer {
-    cursor: pointer;
-  }
 }
 
-@keyframes itemShowing {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes itemNotShowing {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+.cursorPointer {
+  cursor: pointer;
 }
 
 @keyframes showDetails {

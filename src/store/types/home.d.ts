@@ -2,6 +2,7 @@ declare module "HomeType" {
   export type HomeType = {
     id: string;
     type: string;
+    pageRecommended: Array<CategoryType>;
     categoryList: Array<CategoryListType>;
   };
 

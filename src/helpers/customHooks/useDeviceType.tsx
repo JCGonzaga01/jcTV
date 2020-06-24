@@ -12,7 +12,6 @@ function useDeviceType() {
     const mediaQuerySP = window.matchMedia("(max-width: 729px)");
 
     function updateMediaQuery() {
-      console.log(window.innerWidth)
       if (mediaQuerySP.matches) {
         setDeviceType("sp");
       } else if (mediaQueryTL.matches) {
