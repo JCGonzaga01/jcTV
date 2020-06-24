@@ -84,7 +84,7 @@ module.exports = (req, res) => {
             starring: ["Tom Cruise", "Emily Blunt"],
             category: ["Action", "Exciting", "Thrilling"],
             trailerUrl:
-              "https://imdb-video.media-imdb.com/vi3591679257/MV5BMjAwMDg0NTU2N15BMTFeQW1wNF5BbWU4MDY5MTYxODEx.mp4?Expires=1593017203&Signature=DDVak9TQOD6vVYgwoGTihJbfvhOpdUxVk12XOU5CewaktH0Nx2JN402i4PovARCL6-UsRbZQ74iTB9W6Lq2TzmfFncve3K9-gVr1ABndpQD6gOx~WE1hKquoolWGTxYazZAMQ91KJLRifYreRcjJXK2RSFSy3Xhs7zVcJLPzuoWd3uPQI9pc9YQ1yp6XnkoxS3GPvwaS0qAYoS3urbtE7SiGI3JiXuWrqAqOrLRZ88WsAmHUfX4otiBMfMCDO~LnA3xFz1mGd~uNcfV6~hQFjP1j~IhjiVPg1cICISvQb1dPx71BWzO~NUrqzvAbwpmQh~5sovvScWZTn5XZTEc3rQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA",
+              "https://imdb-video.media-imdb.com/vi3591679257/MV5BMjAwMDg0NTU2N15BMTFeQW1wNF5BbWU4MDY5MTYxODEx.mp4?Expires=1593104329&Signature=StF0L6w8R4IKbb6g5uk3z-yYAVz4BCzhn98z~kV74LEjPatkgOIIK9OiteMPUP01BgtQwRA5V0ckve5~FFigGsjSuaL~Fl8zT6HjsW8aBjcqXuJip5b~uxHa0vAE2npce6VUXhJzOdGXcoRRuNntFRx2hzBxsf8IqcDaKkYe9ocdNoPyFWkJalv8VmuzZ6P4IQ-ddQN1jKJskyj8X41qUkO48xgEVfGepwgSJGr1X17AJpbeK1t5kn7AyGRdxOgEDJMFigh4zoWKr~-BC0BQsU9ij-boVPi~suv5L2mTqFvYpNq16B~ZVotx3SlEjI9EIHsKiIqATigWXJbxuMAKdA__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA",
             trailerPoster:
               "https://i2.wp.com/thespool.net/wp-content/uploads/2019/06/Edge-of-Tomorrow-Wallpapers.jpg?fit=1920%2C1231&ssl=1",
           },
@@ -102,7 +102,7 @@ module.exports = (req, res) => {
             starring: ["Brie Larson", "Samuel L. Jackson"],
             category: ["Fantasy"],
             trailerUrl:
-              "https://imdb-video.media-imdb.com/vi4235180569/1434659607842-pgv4ql-1550682793575.mp4?Expires=1593017604&Signature=YGvYarQTT7CzY1Hkr79CRGWMdqZdqZVrBIPL68CcQP7O0PUB6R73sXhyNiy~uTUnNH-3wrva6V4bF7KSERkhUuHGwNlwnyappPoWCI~jUNdGqk7Vk4CodQoFxv3rnNv8OrsX8ksx-1qat2xWoYQWQwaigPZDoMHmhr76bmcJ1dGfJAwF2p21osOSc1LvJ0pCngLVb4Ohhzb~paZIrMO133ApgYlEtU12jxV3c3-WOXLc5thWZ0HkNI6hlniIkfX-TMGJijo-Lnw0gTdp-aSUCSnvind7cRzetp1ZSf7RzuEjKqW7cwilpbZ5-y9KZ8Wemtmry1Y0GSv7i-KWopOCpg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA",
+              "https://imdb-video.media-imdb.com/vi4235180569/1434659607842-pgv4ql-1550682793575.mp4?Expires=1593104426&Signature=m60Jr8k8MJ467voFHFQPpP0AQ9MMIii4eCTLvQEMEzKWyKD2~ynPpFsGmOKZ5hpy7PYQyOkv~fNwd6HlNEae66JyO~q~ePMlG3FiPD9TPN3vJ1vCLwQwo3QB4Uo~ROmEHctzk-BzzaX79m8wXgbkUFPQZbmx18OiyZ5B~mCurndFSA4BxfGmtc80uXKVYThVsMrWkjT3g6fJ3ePqxypI6J5ekkqGzL94OwGgJRy~FJYMaGrxvykA3-JwPuLj3OEMfCOferi-W2o-reGx-TkqFXsehMIDN2nYEMv1M9Qa~c32a~n1NxBZAAFIiUTm8-~b~8tWR4~axrL08LPhGoMG-Q__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA",
             trailerPoster:
               "https://cdn.vox-cdn.com/thumbor/8IFRoO9CNIxNRjqpO4q4Vm-PC0E=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/15585530/CaptainMarvel5c1d2766eb7f0.jpg",
           },
