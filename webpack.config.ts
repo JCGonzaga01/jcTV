@@ -11,23 +11,26 @@ module.exports = (env): typeof webpack.Configuration => ({
   entry: "./src/index.tsx",
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".css", ".scss"],
-    alias: {
-      _root: path.resolve(__dirname, "./src/_root/"),
-      components: path.resolve(__dirname, "./src/components/"),
-      constants: path.resolve(__dirname, "./src/constants/"),
-      helpers: path.resolve(__dirname, "./src/helpers/"),
-      pages: path.resolve(__dirname, "./src/pages/"),
-      services: path.resolve(__dirname, "./src/services/"),
-      store: path.resolve(__dirname, "./src/store/"),
-    },
+    modules: [path.resolve(__dirname, "src"), "node_modules"],
+    plugins: [
+      new TsconfigPathsPlugin({
+        configFile: path.resolve(__dirname, "./tsconfig.json"),
+        extensions: [".ts", ".tsx", ".js", ".css", ".scss"],
+        logLevel: "INFO",
+        baseUrl: path.join(__dirname, "src"),
+      }),
+    ],
   },
   devServer: {
     watchContentBase: true,
     historyApiFallback: true,
   },
   output: {
-    path: path.join(__dirname, "/dist"),
-    filename: "build.js",
+    // path: path.join(__dirname, "/dist"),
+    // filename: "build.js",
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].[hash].js",
+    publicPath: "/",
   },
   module: {
     rules: [
@@ -53,13 +56,23 @@ module.exports = (env): typeof webpack.Configuration => ({
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       "process.env.PRODUCTION": env.production || !env.development,
       "process.env.NAME": JSON.stringify(require("./package.json").name),
       "process.env.VERSION": JSON.stringify(require("./package.json").version),
       "process.env": dotenv.parsed,
     }),
-    new TsconfigPathsPlugin({ configFile: "tsconfig.json" }),
-    // new ForkTsCheckerWebpackPlugin({ eslint: true }),
   ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendor",
+          chunks: "all",
+        },
+      },
+    },
+  },
 });
