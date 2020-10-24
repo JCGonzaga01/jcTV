@@ -2,7 +2,7 @@
 
 This is my own version of simple VOD (Video-On-Demand) app with functionalities.
 
-The project is build using teh following libraries:
+The project is build using the following libraries:
 
 1. **ReactJS**
 2. **ReactHooks**
@@ -10,6 +10,7 @@ The project is build using teh following libraries:
 4. **Redux-TypeScripts**
 5. **Webpack**
 6. **Expressjs**
+7. **Node-SASS**
 
 Also all components were implemented purely using **VanillaJS**.
 
