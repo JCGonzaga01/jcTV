@@ -1,6 +1,17 @@
-## This is a simple VOD (Video-On-Demand) app with functionalities.
+## Project Overview
 
-The project is build using **ReactJS** and maximizing the capabilities of **ReactHooks** and **TypeScripts**. Also components were implemented purely using **VanillaJS**.
+This is my own version of simple VOD (Video-On-Demand) app with functionalities.
+
+The project is build using teh following libraries:
+
+1. **ReactJS**
+2. **ReactHooks**
+3. **TypeScripts**
+4. **Redux-TypeScripts**
+5. **Webpack**
+6. **Expressjs**
+
+Also all components were implemented purely using **VanillaJS**.
 
 ## How to run?
 
