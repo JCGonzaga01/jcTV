@@ -12,8 +12,6 @@ The project is build using the following libraries:
 6. **Expressjs**
 7. **Node-SASS**
 
-Also all components were implemented purely using **VanillaJS**.
-
 ## How to run?
 
 Below are the steps to run the application to your local:
@@ -23,4 +21,5 @@ Below are the steps to run the application to your local:
 3.  To run the app using mock-data, use `yarn dev`
 
 # License
+
 [MIT](https://github.com/JCGonzaga01/jcTV/blob/master/LICENSE)

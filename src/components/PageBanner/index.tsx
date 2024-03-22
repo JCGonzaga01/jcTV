@@ -20,7 +20,7 @@ const PageBanner: React.FC<Props> = ({ items }) => {
     }, 500);
   };
 
-  const handleOnClickPlayBtn = () => window.open("https://waitforit.rakuten.tv/", "_blank");
+  const handleOnClickPlayBtn = () => window.open("/", "_blank");
 
   return (
     <div className={styles.wrapper}>
